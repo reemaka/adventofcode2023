@@ -28,24 +28,25 @@ def calc_num_won(winning, have):
             n += 1
     return n
 
-# PART 1
-total_points = 0
-for l in lines:
-    nums = l.strip().split(':')[1]
+def parse_winning_and_have(line):
+    nums = line.strip().split(':')[1]
     winning, have = nums.strip().split('|')
     winning = get_nums(winning)
     have = get_nums(have)
+    return winning, have
+
+
+# PART 1
+total_points = 0
+for l in lines:
+    winning, have = parse_winning_and_have(l)
     total_points += calc_points(winning, have)
 print(total_points)
 
 # PART 2
 num_instances = [1] * len(lines)
 for i, l in enumerate(lines):
-    card_id = l.strip().split(':')[0]
-    nums = l.strip().split(':')[1]
-    winning, have = nums.strip().split('|')
-    winning = get_nums(winning)
-    have = get_nums(have)
+    winning, have = parse_winning_and_have(l)
     num_won = calc_num_won(winning, have)
 
     for j in range(i + 1, i + 1 + num_won):
