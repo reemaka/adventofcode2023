@@ -40,3 +40,5 @@ for l in f:
     sum += getCalibrationVal(line)
 print(sum)
     
+
+f.close()

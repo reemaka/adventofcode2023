@@ -2,10 +2,8 @@
 import sys
 
 f = open(sys.argv[1] if len(sys.argv) > 1 else "input.txt", "r")
-
-lines = []
-for l in f:
-    lines.append(l)
+lines = f.readLines()
+f.close()
 
 def get_nums(substr):
     nums = filter(lambda x: x.isdigit(), substr.strip().split(' '))
@@ -53,3 +51,5 @@ for i, l in enumerate(lines):
         # Each instance of card i wins an instance of card j
         num_instances[j] += num_instances[i]
 print(sum(num_instances))
+
+f.close()

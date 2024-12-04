@@ -68,3 +68,4 @@ for coord in coords:
     if len(part_nums) == 2:
         ans += part_nums[0] * part_nums[1]
 print(ans)
+f.close()

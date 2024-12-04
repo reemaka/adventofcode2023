@@ -1,10 +1,8 @@
 import sys
 
 f = open(sys.argv[1] if len(sys.argv) > 1 else "input.txt", "r")
-
-lines = []
-for l in f:
-    lines.append(l)
+lines = f.readlines()
+f.close()
 
 # Part 1
 in_bag = {'red': 12, 'green': 13, 'blue': 14}
